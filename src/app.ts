@@ -4,6 +4,11 @@ import databaseConnection from '@root/setupDatabase';
 import { config } from '@root/config';
 
 class Application {
+  private loadConfig(): void {
+    config.validateConfig();
+    config.cloudinaryConfig();
+  }
+
   public initialize(): void {
     this.loadConfig();
     databaseConnection();
@@ -12,10 +17,6 @@ class Application {
     server.start();
   }
 
-  private loadConfig(): void {
-    config.validateConfig();
-    config.cloudinaryConfig();
-  }
 }
 
 const application: Application = new Application();
