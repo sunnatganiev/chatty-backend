@@ -26,6 +26,7 @@ class UserService {
       { $project: this.aggregateProject() }
     ]);
 
+    console.log({ users });
     return users[0];
   }
 
